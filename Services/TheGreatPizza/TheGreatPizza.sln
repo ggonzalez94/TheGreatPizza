@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheGreatPizza.Api", "TheGre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheGreatPizza.Core", "TheGreatPizza.Core\TheGreatPizza.Core.csproj", "{27A3F45A-0CA5-4DCD-8EDD-795BD9573D01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheSneakersMob.Infrastructure", "TheSneakersMob.Infrastructure\TheSneakersMob.Infrastructure.csproj", "{3D239306-9F45-4507-B51F-97518E61A7C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheGreatPizza.Infrastructure", "TheGreatPizza.Infrastructure\TheGreatPizza.Infrastructure.csproj", "{3D239306-9F45-4507-B51F-97518E61A7C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

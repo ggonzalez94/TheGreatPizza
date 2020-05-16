@@ -1,15 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using TheGreatPizza.Infrastructure.Data;
 
 namespace TheGreatPizza.Api
 {
@@ -26,6 +30,14 @@ namespace TheGreatPizza.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<ApplicationDbContext>(options => {
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"),
+                    assembly => assembly.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name));
+                options.EnableSensitiveDataLogging();
+            });
+            services.AddCustomSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,10 +54,36 @@ namespace TheGreatPizza.Api
 
             app.UseAuthorization();
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "The Great Pizza Api V1");
+                c.RoutePrefix = string.Empty;
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+        }
+    }
+
+    static class CustomExtensionMethods
+    {
+        public static IServiceCollection AddCustomSwagger(this IServiceCollection services)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "The Great Pizza Api",
+                    Version = "v1",
+                });
+
+                //var xmlFile = Path.ChangeExtension(typeof(Startup).Assembly.Location, ".xml");
+                //c.IncludeXmlComments(xmlFile);
+            });
+            return services;
         }
     }
 }

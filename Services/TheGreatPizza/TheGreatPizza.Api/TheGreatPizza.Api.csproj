@@ -5,8 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TheGreatPizza.Core\TheGreatPizza.Core.csproj" />
-    <ProjectReference Include="..\TheSneakersMob.Infrastructure\TheSneakersMob.Infrastructure.csproj" />
+    <ProjectReference Include="..\TheGreatPizza.Infrastructure\TheGreatPizza.Infrastructure.csproj" />
   </ItemGroup>
 
 
