@@ -8,6 +8,11 @@ namespace TheGreatPizza.Core.Toppings
     public class Topping
     {
         public int Id { get; private set; }
-        public string Name { get; set; }
+        public string Name { get; private set; }
+
+        public Topping(string name)
+        {
+            Name = name;
+        }
     }
 }

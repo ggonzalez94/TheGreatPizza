@@ -9,5 +9,12 @@ namespace TheGreatPizza.Core.Pizzas
 
         public int ToppingId { get; set; }
         public Topping Topping { get; set; }
+        
+        private PizzaTopping() { } //Private ctor for EF Core
+
+        public PizzaTopping(Topping topping)
+        {
+            Topping = topping;
+        }
     }
 }
