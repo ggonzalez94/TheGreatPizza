@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Topping } from '../topping';
 import { MatTableDataSource } from '@angular/material/table';
 import { ToppingService, CreateTopping } from '../topping.service';
-import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from 'src/app/shared/confirmation-dialog/confirmation-dialog.component';
@@ -16,7 +15,7 @@ import { CreateToppingComponent } from '../create-topping/create-topping.compone
 export class ToppingListComponent implements OnInit {
 
   dataSource: MatTableDataSource<Topping> = new MatTableDataSource();
-  columnsToDisplay = ['id', 'name', 'delete'];
+  columnsToDisplay = ['name', 'delete'];
   searchKey: string;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

@@ -30,6 +30,16 @@ export class PizzaService {
     return this.http.get<Pizza>(url);
   }
 
+  addTopping(pizzaId: number, toppingId: number): Observable<{}> {
+    const url = `${this.baseUrl}AddTopping/${pizzaId}`;
+    return this.http.post(url, {toppingId} as AddTopping);
+  }
+
+  removeTopping(pizzaId: number, toppingId: number): Observable<{}> {
+    const url = `${this.baseUrl}RemoveTopping/${pizzaId}`;
+    return this.http.post(url, {toppingId} as RemoveTopping);
+  }
+
 }
 
 export interface GetAllPizzas {
@@ -39,4 +49,12 @@ export interface GetAllPizzas {
 export interface CreatePizza {
   name: string;
   description?: string;
+}
+
+export interface AddTopping {
+  toppingId: number;
+}
+
+export interface RemoveTopping {
+  toppingId: number;
 }

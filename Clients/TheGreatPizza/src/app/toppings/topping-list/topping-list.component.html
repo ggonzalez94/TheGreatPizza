@@ -11,13 +11,6 @@
 </mat-form-field>
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="id">
-      <th class="small-column" mat-header-cell *matHeaderCellDef> # </th>
-      <td mat-cell *matCellDef="let topping"> {{topping.id}} </td>
-    </ng-container>
-
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Topping </th>

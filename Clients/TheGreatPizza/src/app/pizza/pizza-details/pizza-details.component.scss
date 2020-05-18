@@ -12,6 +12,22 @@ mat-toolbar {
   }
 }
 
-mat-form-field{
-  width: 80%;
+mat-chip {
+  justify-content: space-between;
+}
+
+.selectTopping {
+  width: 50%;
+}
+
+input {
+  height: 50px;
+}
+
+.button-row{
+  margin-top: 20px;
+}
+
+button {
+  width: 100px !important;
 }

@@ -3,11 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ToppingsModule } from './toppings/toppings.module';
 import { PizzaModule } from './pizza/pizza.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: '/pizzas', pathMatch: 'full' },
+  { path: '**', component:NotFoundComponent}
 ];
 
 @NgModule({

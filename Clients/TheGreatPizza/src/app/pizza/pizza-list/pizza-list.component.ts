@@ -68,7 +68,7 @@ export class PizzaListComponent implements OnInit {
       disableClose: true,
       hasBackdrop: true,
       autoFocus: false,
-      width: '60%',
+      width: '40%',
     } as MatDialogConfig;
 
     dialogConfig.data = pizza.id;

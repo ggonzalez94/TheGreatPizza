@@ -2,19 +2,23 @@
   <mat-toolbar>
     <span>Pizza {{pizza.name}}</span>
     <span class="fill-remaining-space"></span>
-    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
-      <mat-icon>clear</mat-icon>
-    </button>
   </mat-toolbar>
-  <form [formGroup]="pizzaForm" class="normal-form" (submit)="onSubmit()">
-    <div class="controles-container">
-      <mat-form-field *ngIf="pizza.description" appearance="fill">
-        <textarea matInput type="text" formControlName="description">
-      </textarea>
-      </mat-form-field>
-      <div class="button-row">
-        <button mat-raised-button color="primary" type="submit" [disabled]="pizzaForm.invalid">Submit</button>
-      </div>
-    </div>
-  </form>
+  <h2 *ngIf="pizza.description"> {{pizza.description}}</h2>
+
+  <mat-form-field appearance="standard" class="selectTopping">
+    <mat-select (selectionChange)="onToppingSelected($event)">
+      <input matInput  placeholder="Search" autocomplete="off" (keyup)="onKey($event.target.value)">
+      <mat-option *ngFor="let topping of selectedToppings" [value]="topping" [disabled]="optionDisabled(topping)">{{topping.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
+    <mat-chip *ngFor="let topping of pizza.toppings" color="accent" selected>{{topping.name}}
+      <mat-icon (click)="onDelete(topping)" class="mat-18">delete</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+
+  <div class="button-row" align="end">
+    <button (click)="onClose()" mat-flat-button color="primary">Ok</button>
+  </div>
 </div>
