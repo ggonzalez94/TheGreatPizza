@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCardModule} from '@angular/material/card';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 
@@ -27,6 +28,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     MatPaginatorModule,
     MatDialogModule,
     MatGridListModule,
+    MatCardModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
@@ -44,6 +46,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     MatPaginatorModule,
     MatDialogModule,
     MatGridListModule,
+    MatCardModule,
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,

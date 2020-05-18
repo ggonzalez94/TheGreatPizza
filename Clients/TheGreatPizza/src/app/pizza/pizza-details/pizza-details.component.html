@@ -1,0 +1,20 @@
+<div *ngIf="pizza">
+  <mat-toolbar>
+    <span>Pizza {{pizza.name}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-toolbar>
+  <form [formGroup]="pizzaForm" class="normal-form" (submit)="onSubmit()">
+    <div class="controles-container">
+      <mat-form-field *ngIf="pizza.description" appearance="fill">
+        <textarea matInput type="text" formControlName="description">
+      </textarea>
+      </mat-form-field>
+      <div class="button-row">
+        <button mat-raised-button color="primary" type="submit" [disabled]="pizzaForm.invalid">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

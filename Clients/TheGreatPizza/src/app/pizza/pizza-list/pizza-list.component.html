@@ -12,23 +12,33 @@
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="id">
-      <th class="small-column" mat-header-cell *matHeaderCellDef> # </th>
-      <td mat-cell *matCellDef="let topping"> {{topping.id}} </td>
-    </ng-container>
-
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Topping </th>
-      <td mat-cell *matCellDef="let topping"> {{topping.name}} </td>
+      <th mat-header-cell *matHeaderCellDef> Pizza </th>
+      <td mat-cell *matCellDef="let pizza"> {{pizza.name}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let pizza"> {{pizza.description}} </td>
+    </ng-container>
+
+     <!-- Details Column -->
+     <ng-container matColumnDef="details">
+      <th class="small-column" mat-header-cell *matHeaderCellDef> Details </th>
+      <td mat-cell *matCellDef="let pizza">
+        <button mat-icon-button color="primary" (click)="onDetails(pizza)">
+            <mat-icon class="mat-18">reorder</mat-icon>
+        </button>
+      </td>
     </ng-container>
 
     <!-- Delete Column -->
     <ng-container matColumnDef="delete">
       <th class="small-column" mat-header-cell *matHeaderCellDef> Delete </th>
-      <td mat-cell *matCellDef="let topping">
-        <button mat-icon-button color="warn" (click)="onDelete(topping)">
+      <td mat-cell *matCellDef="let pizza">
+        <button mat-icon-button color="warn" (click)="onDelete(pizza)">
             <mat-icon class="mat-18">delete</mat-icon>
         </button>
       </td>

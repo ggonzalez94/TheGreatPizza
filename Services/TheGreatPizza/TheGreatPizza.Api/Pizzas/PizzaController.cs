@@ -39,7 +39,8 @@ namespace TheGreatPizza.Api.Pizzas
             var pizzas = await _context.Pizzas
                 .Select(p => new PizzaSummaryDto {
                     Id = p.Id,
-                    Name = p.Name
+                    Name = p.Name,
+                    Description = p.Description
                 })
                 .ToListAsync();
 
@@ -67,6 +68,23 @@ namespace TheGreatPizza.Api.Pizzas
                 return NotFound("Your pizza could not be found. Sorry!");
 
             return Ok(pizza);
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var pizza = await _context.Pizzas
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (pizza is null)
+                return NotFound("There is not such pizza. Sorry!");
+
+             _context.Remove(pizza);
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
 
         [HttpPost ("{id}")]

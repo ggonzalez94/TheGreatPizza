@@ -15,7 +15,7 @@ import { CreateToppingComponent } from '../create-topping/create-topping.compone
 })
 export class ToppingListComponent implements OnInit {
 
-  dataSource: MatTableDataSource<any> = new MatTableDataSource();
+  dataSource: MatTableDataSource<Topping> = new MatTableDataSource();
   columnsToDisplay = ['id', 'name', 'delete'];
   searchKey: string;
 
@@ -39,7 +39,7 @@ export class ToppingListComponent implements OnInit {
       disableClose: true,
       hasBackdrop: true,
       autoFocus: false,
-      width: '60%',
+      width: '40%',
     } as MatDialogConfig;
     dialogConfig.data = { title: `Are you sure you want to remove ${topping.name} from the available list of toppings?`};
 

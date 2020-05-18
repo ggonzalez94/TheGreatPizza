@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Topping } from './topping';
-import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +13,7 @@ export class ToppingService {
   constructor(private http: HttpClient) { }
 
   getToppings(): Observable<GetAllToppings> {
-    return this.http.get<GetAllToppings>(this.baseUrl + 'GetAll')
-    .pipe(
-      tap(data => console.log(JSON.stringify(data)))
-    );
+    return this.http.get<GetAllToppings>(this.baseUrl + 'GetAll');
   }
 
   deleteTopping(id: number): Observable<{}> {
