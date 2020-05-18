@@ -37,6 +37,7 @@ namespace TheGreatPizza.Api
                     assembly => assembly.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name));
                 options.EnableSensitiveDataLogging();
             });
+            services.AddCors();
             services.AddCustomSwagger();
         }
 
@@ -51,6 +52,7 @@ namespace TheGreatPizza.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseAuthorization();
 

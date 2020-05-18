@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <span>New Topping</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+<form [formGroup]="toppingForm" class="normal-form" (submit)="onSubmit()">
+  <div class="controles-container">
+    <mat-form-field appearance="standard">
+      <input formControlName="name" matInput placeholder="Topping Name*">
+      <mat-error>You must enter the name of the topping</mat-error>
+    </mat-form-field>
+    <div class="button-row">
+      <button mat-raised-button color="primary" type="submit" [disabled]="toppingForm.invalid">Submit</button>
+    </div>
+  </div>
+</form>
