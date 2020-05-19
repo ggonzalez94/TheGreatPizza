@@ -8,7 +8,7 @@ import { Topping } from './topping';
 })
 export class ToppingService {
 
-  private baseUrl = 'https://localhost:5001/api/Topping/';
+  private baseUrl = 'http://localhost:5000/api/Topping/';
 
   constructor(private http: HttpClient) { }
 

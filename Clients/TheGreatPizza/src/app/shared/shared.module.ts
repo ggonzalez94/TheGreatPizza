@@ -15,10 +15,11 @@ import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSelectModule} from '@angular/material/select';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 
 
 @NgModule({
-  declarations: [ConfirmationDialogComponent],
+  declarations: [ConfirmationDialogComponent, ErrorDialogComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -38,7 +39,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     ReactiveFormsModule,
   ],
   entryComponents: [
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ErrorDialogComponent
   ],
   exports: [
     MatToolbarModule,
@@ -56,7 +58,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ErrorDialogComponent
   ]
 })
 export class SharedModule { }

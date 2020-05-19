@@ -1,0 +1,12 @@
+<mat-dialog-content>
+
+  <h1>
+    <mat-icon color="warn" class="mat-18">warning</mat-icon>The following error was detected!
+  </h1>
+  <p>
+    {{data.title}}
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-raised-button (click)="onClose()">Ok</button>
+</mat-dialog-actions>
