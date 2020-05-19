@@ -2,7 +2,7 @@
 
 Sample application of programming paradigms and patterns using .Net Core and Angular :fire:
 
-----> GIF HERE <----
+![PizzasWorking](https://thumbs.gfycat.com/MarriedBestHarpyeagle-size_restricted.gif)
 
 ## Techonologies in use and roadmap
 This section cover the base technologies in use for this app and some others that the application may benefit in the future.
