@@ -6,7 +6,7 @@
   <h2 *ngIf="pizza.description"> {{pizza.description}}</h2>
 
   <mat-form-field appearance="standard" class="selectTopping">
-    <mat-select (selectionChange)="onToppingSelected($event)">
+    <mat-select (selectionChange)="onToppingSelected($event)" placeholder="Add Toppings">
       <input matInput  placeholder="Search" autocomplete="off" (keyup)="onKey($event.target.value)">
       <mat-option *ngFor="let topping of selectedToppings" [value]="topping" [disabled]="optionDisabled(topping)">{{topping.name}}</mat-option>
     </mat-select>
