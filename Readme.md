@@ -71,7 +71,7 @@ The application can be run locally and only requires .Net Core 3 SDK and Angular
     ```
      dotnet run
      ``` 
-6. Launch [https://localhost:5001/swagger](http://localhost:5000/swagger) in your browser to test the Api with Swagger
+6. Launch [https://localhost:5001](http://localhost:5000) in your browser to test the Api with Swagger
 
 ### Angular Application
 1. Standing in the root of the repo change directory to the Angular app.
